@@ -10,15 +10,9 @@
 
     <!--Description-->
     
-        <meta name="description" content="个人认为用来搭建博客hexo比其他的简单,加之借鉴了各位大神的博客，来记录一下自己搭hexo博客的经历 平台为github 
-初篇
+        <meta name="description" content="听说拥有一个博客对程序员来说是一个挺高大上的东西，于是乎学习如何创建自己的博客。咳咳咳，博客的最大意义是在于分享知识，还可以对自己犯下的错误进行归纳解决，记录下解决方案并避免下次再犯。还可以记录一些技术手段来使自己下次更方便的使用，总之好处多多。下面是创建wordpress类型的博客的记录
 
-需要自己先下载好git和npm工具,然后注册一个github账号.
-git和npm安装教程
-
-
-安装hexo
-安装教程">
+首先我">
     
 
     <!--Author-->
@@ -28,7 +22,7 @@ git和npm安装教程
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="如何搭建hexo博客">
+        <meta property="og:title" content="用新浪云搭建wordpress博客">
     
 
     <!--Open Graph Description-->
@@ -50,7 +44,7 @@ git和npm安装教程
 
     <!-- Title -->
     
-    <title>如何搭建hexo博客 - RE9T的博客</title>
+    <title>用新浪云搭建wordpress博客 - RE9T的博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -154,13 +148,13 @@ git和npm安装教程
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2019/04/18/hello-world/">
-                如何搭建hexo博客
+            <a href="/2019/04/19/2019-04-11-用新浪云搭建wordpress博客/">
+                用新浪云搭建wordpress博客
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-04-18</span>
+                <span class="date">2019-04-19</span>
             
             
             
@@ -173,16 +167,15 @@ git和npm安装教程
         
 
         <!-- Post Content -->
-        <p>个人认为用来搭建博客<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>比其他的简单,加之借鉴了各位大神的博客，来记录一下自己搭hexo博客的经历 <strong>平台为github</strong> </p>
-<h3 id="初篇"><a href="#初篇" class="headerlink" title="初篇"></a>初篇</h3><blockquote>
-<ul>
-<li>需要自己先下载好<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a>和<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">npm</a>工具,然后注册一个github账号.</li>
-<li><a href="https://blog.csdn.net/buknow/article/details/80325986" target="_blank" rel="noopener">git</a>和<a href="https://www.cnblogs.com/goldlong/p/8027997.html" target="_blank" rel="noopener">npm</a>安装教程</li>
-</ul>
-</blockquote>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><blockquote>
-<p><a href="https://runindark.com/2019/03/23/My" target="_blank" rel="noopener">安装教程</a></p>
-</blockquote>
+        <p>听说拥有一个博客对程序员来说是一个挺高大上的东西，于是乎学习如何创建自己的博客。咳咳咳，博客的最大意义是在于分享知识，还可以对自己犯下的错误进行归纳解决，记录下解决方案并避免下次再犯。还可以记录一些技术手段来使自己下次更方便的使用，总之好处多多。下面是创建wordpress类型的博客的记录</p>
+<ol>
+<li><p>首先我们需要创建一个新浪云账号（实际上别的服务云也行，关键是需要有一个服务器来搭载自己的博客）创建过程自理，然后如图<img src="https://i.loli.net/2019/04/11/5caf58e8b0088.png" alt="Image Title"> 点入产品，选择云应用SAE,进入后选择环境的时候，选择php，版本为5.6（这个以后可以自己更改）然后选择标准环境（主要是免费）然后选择GIT （方便以后操作，影响不大，而且更好控制）（二级域名可以随便取）先进入代码管理创建应用，应用名随意。然后进入数据库与缓存的共享mysql服务，记录下主库地址，数据库名称，用户名及密码，这个后面很重要记录下来</p>
+</li>
+<li><p>然后下载一个wordpress的代码压缩包（可以在官网下载）.在我的百度云盘上也有链接：<a href="https://pan.baidu.com/s/1mqfGn65FrVx_cUBvE-73nw" target="_blank" rel="noopener">https://pan.baidu.com/s/1mqfGn65FrVx_cUBvE-73nw</a><br>提取码：b820  （我云盘里的wordpress是修改过的，下载后需要先解压修改其中的wp-config.php文件） 修改部分不多，见图<img src="https://i.loli.net/2019/04/12/5cafe31a31021.png" alt="Image Title">，修改划线部分，主机用刚才记录下的共享MySQL主库地址代替，其余名称，用户名，及密码也一样，其余部分不用修改，（官网下载的wordpress是没有wp-config.php文件的将其中的wp-config-simple.php修改即可）。</p>
+</li>
+<li><p>然后将其压缩成zip文件（方便上传代码，新浪云代码编辑只能上传压缩包），等待运行成功即可。然后点入链接即可（代码管理处的链接）。进入链接后点击现在安装，然后需要填写一些基本信息，随意填写，建议将用户和密码自己保存起来。填写完成后点击安装wordpress。然后就可以Arnhem就会让你登陆，填写上刚注册的用户名和密码。就可以进入创建好的wordpress了。</p>
+</li>
+</ol>
 
     </div>
 

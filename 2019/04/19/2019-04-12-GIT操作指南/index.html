@@ -10,15 +10,12 @@
 
     <!--Description-->
     
-        <meta name="description" content="个人认为用来搭建博客hexo比其他的简单,加之借鉴了各位大神的博客，来记录一下自己搭hexo博客的经历 平台为github 
-初篇
+        <meta name="description" content="回退版本
 
-需要自己先下载好git和npm工具,然后注册一个github账号.
-git和npm安装教程
-
-
-安装hexo
-安装教程">
+查看历史版本信息 git log如果想要查看简单信息须加上 –pretty=oneline
+回退版本 git reset –hard HEAD^     #为回退到当前版本的上一个版本.
+如果是 –hard HAED~n      #往上n个版本
+还可以 –hard 版本号       ">
     
 
     <!--Author-->
@@ -28,7 +25,7 @@ git和npm安装教程
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="如何搭建hexo博客">
+        <meta property="og:title" content="GIT操作指南（jekyll）">
     
 
     <!--Open Graph Description-->
@@ -50,7 +47,7 @@ git和npm安装教程
 
     <!-- Title -->
     
-    <title>如何搭建hexo博客 - RE9T的博客</title>
+    <title>GIT操作指南（jekyll） - RE9T的博客</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -154,13 +151,13 @@ git和npm安装教程
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2019/04/18/hello-world/">
-                如何搭建hexo博客
+            <a href="/2019/04/19/2019-04-12-GIT操作指南/">
+                GIT操作指南（jekyll）
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2019-04-18</span>
+                <span class="date">2019-04-19</span>
             
             
             
@@ -173,15 +170,43 @@ git和npm安装教程
         
 
         <!-- Post Content -->
-        <p>个人认为用来搭建博客<a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo</a>比其他的简单,加之借鉴了各位大神的博客，来记录一下自己搭hexo博客的经历 <strong>平台为github</strong> </p>
-<h3 id="初篇"><a href="#初篇" class="headerlink" title="初篇"></a>初篇</h3><blockquote>
+        <h3 id="回退版本"><a href="#回退版本" class="headerlink" title="回退版本"></a>回退版本</h3><blockquote>
 <ul>
-<li>需要自己先下载好<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">git</a>和<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">npm</a>工具,然后注册一个github账号.</li>
-<li><a href="https://blog.csdn.net/buknow/article/details/80325986" target="_blank" rel="noopener">git</a>和<a href="https://www.cnblogs.com/goldlong/p/8027997.html" target="_blank" rel="noopener">npm</a>安装教程</li>
+<li>查看历史版本信息 git log如果想要查看简单信息须加上 –pretty=oneline</li>
+<li>回退版本 git reset –hard HEAD^     #为回退到当前版本的上一个版本.</li>
+<li>如果是 –hard HAED~n      #往上n个版本</li>
+<li>还可以 –hard 版本号       #回退到该版本，可以是过去，或者将来<blockquote>
+<ul>
+<li>（仅仅是在本地回退，还需要推送上网页）</li>
 </ul>
 </blockquote>
-<h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><blockquote>
-<p><a href="https://runindark.com/2019/03/23/My" target="_blank" rel="noopener">安装教程</a></p>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h3><blockquote>
+<ul>
+<li><strong>git push -f -u origin master</strong><br>master可以换成其他分支，比如gh-pages</li>
+<li>git pull    #更新，功能是取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。<blockquote>
+<ul>
+<li>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><blockquote>
+<ul>
+<li>git init    #初始化仓库，本地</li>
+<li>git add    #添加文件到本地仓库</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><blockquote>
+<ul>
+<li>git rm    #具体操作会有提示</li>
+</ul>
 </blockquote>
 
     </div>
