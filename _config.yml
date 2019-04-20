@@ -78,7 +78,10 @@ theme: hexo-theme-alpha-dust-master
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:qwq111/qwq111.github.io.git
+# github: git@github.com
+  branch: master
 
 # 个人配置
 server:
