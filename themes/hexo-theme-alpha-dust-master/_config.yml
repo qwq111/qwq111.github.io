@@ -1,0 +1,43 @@
+# Logo (Font Awesome Class)
+fa_logo: fa-cube
+
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: /about.html
+  Tags: /tags
+  Categories: /categories
+  Contact: /contact.html
+
+# Default post title
+default_post_title: Untitled
+
+# Archive Date Format
+archive_date_format: MMM YYYY
+
+# Comments.
+comments:
+  # Disqus comments
+  disqus_shortname:
+
+# Google Analytics Tracking ID
+google_analytics:
+
+# Social Accounts
+twitter_url: 
+facebook_url: 
+instagram_url: 
+dribble_url: 
+github_url: 
+googleplus_url: 
+behance_url: 
+fivehundredpx_url: 
+email_url: 
+rss_url: 
+
+# Footer About Text
+footer_about: "由RE9T修改而来"
+# Footer Copyright Line
+footer_copyright: 
+
