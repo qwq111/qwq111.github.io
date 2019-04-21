@@ -41,8 +41,10 @@ npm install hexo --save
 >+ 然后就完成了，接下来操作与正常hexo上传相似，
 >建议以后每次操作为（前提是如果在本地预览后没有问题，）。
 
->>1. ```$ git pull```
->>1. ```$ hexo d -g```
->>1. ```$ git add -all```
->>1. ```$ git commit -m "代码自述"```
->>1. ```$ git push -u origin hexo```
+``` 
+1.$ git pull
+2.$ hexo d -g
+3.$ git add -all
+4.$ git commit -m "代码自述"
+5.$ git push -u origin hexo
+```
