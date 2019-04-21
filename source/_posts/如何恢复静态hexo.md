@@ -42,9 +42,9 @@ npm install hexo --save
 >建议以后每次操作为（前提是如果在本地预览后没有问题，）。
 
 ``` 
-1.$ git pull
-2.$ hexo d -g
-3.$ git add -all
-4.$ git commit -m "代码自述"
-5.$ git push -u origin hexo
+$ git pull
+$ hexo d -g
+$ git add -all
+$ git commit -m "代码自述"
+$ git push -u origin hexo
 ```
