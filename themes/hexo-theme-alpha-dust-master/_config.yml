@@ -3,15 +3,15 @@ fa_logo: fa-cube
 
 # Header
 menu:
-  Home: /
-  Archives: /archives
-  About: /about.html
+#  Home: /
+#  Archives: /archives
+#  About: /about.html
   Tags: /tags
-  Categories: /categories
-  Contact: /contact.html
+#  Categories: /categories
+#  Contact: /contact.html
 
 # Default post title
-default_post_title: Untitled
+default_post_title: 
 
 # Archive Date Format
 archive_date_format: MMM YYYY
