@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[面向对象和面向过程的总结]]></title>
+    <url>%2F2019%2F09%2F29%2F7-md%2F</url>
+    <content type="text"><![CDATA[学了这么久的编程语言，也来总结一下自己关于面向对象和面向过程的一些思考。 就以翁恺老师讲的自动售货机为例 面向过程对于面向过程的程序设计来说，他所考虑的是完成一个事情的具体步骤，比如我第一步做什么，第二步做什么，然后直到完成这个事情为止，当然这有点像那个算法实施的样子。 以自动售货机为例的话，那么我就应该考虑的是这中间有什么过程，我认为的顺序应该是，初始化，使用，关闭售货机。当然中间的使用又可以细化成若干的步骤。 面向过程一般采取自顶而下的设计步骤，以函数式编程为主。 123456789101112131415int main()&#123; .... //售货机的一些基本数据 init(data);//初始化售货机 uses(data);//使用售货机 close(data);//关闭售货机 .... //结尾工作等等 return 0;&#125;void uses(Vending_machine data)&#123; ..... //若干步骤&#125; 面向对象与面向过程不同，面向对象可以说是暂时跳出了步骤的圈子，它需要的是观察这个事情完成的过程中出现的各种事物，以及抽象出事物的属性及操作方法。 在自动售货机的例子里，出现了三个或者更多的事物，比如人、售货机以及商品等等。 把这个抽象出来的事物属性及其操作方法统合起来叫做类。然后把类实例化后的东西叫做对象。 面向对象的编程在抽象出类后，往往要考虑类与外界的接口，比如说外界怎么访问这个类，这个类怎么操作外部等等。 注意：类里面的属性一般对外私有，尽管可以公有，但是不推荐 以java、python和c++分别写一个代码为例 123456789101112//javapublic class Thing1&#123; //基础私有数据 private Data data1; private Date data2; //构造函数 Ting1(Data d1,Data d2)&#123;&#125; //数据操作方法 public void operat1()&#123; ..... &#125;&#125; 123456789#pythonclass Thing1: #基础私有数据 __data1=... __data2=... #操作方法等等 def operate1(): .... .... 1234567891011//c++class Thing1&#123;private: //基础私有数据 Data data1; Data data2;public: //操作方法 Thing1(); void operat1();&#125; 当类定义之后，就需要实例化了。以自动售货机的例子来说 1234567891011121314//javapublic class Test&#123; public static void main(String[] args)&#123; //类实例化为对象 People p=new People();//人 VendMach vm=new VendMach();//售货机 Thing1 t1=new Thing1();//商品 //售卖过程 vm.add(t1);//售卖机添加商品t1 vm.operat(p.operat());//人购买商品的信息发给售货机进行操作 .... &#125;&#125; 大体上便是如此。 总结面向过程和面向对象并不是分开的。但是侧重点都不一样。面向过程侧重于具体的步骤和实现方法。而面向对象则侧重于数据。 在c++里面 class和struct的差别就在于struct应该只有数据，而class还要包含数据的操作方法。（ps：貌似在c++里strcut也可以定义操作方法的，主要区别是strcut定义的数据默认是共有的，而class默认私有，当然为了和c的strcut区分，所以并不推荐使用struct定义方法）。 优缺点方面，面向过程的性能会好一些，所以在算法竞赛中一般都是使用c++面向的面向过程。但是对于大型程序来说，显然步骤是极多的，使用面向过程并不容易维护。而面向对象，则相反，类调用的时候实例化会有大开销。但是易于维护，复用，和扩展。毕竟从一个类里找错误和从一堆函数里面找错误的难度，可想而知哈]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>c++</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo的next主题使用总结]]></title>
+    <url>%2F2019%2F09%2F29%2F2-md%2F</url>
+    <content type="text"><![CDATA[重新更换NEXT主题的使用总结 搭了几次博客了，一是服务器的问题，二是主题的原因。找了这么久终于找到了一个比较满意的主题-NEXT。 部署在自己的博客的根目录下载，使用如下目录 1$ git clone https://github.com/iissnan/hexo-theme-next themes/next 然后修改使用主题就可以了 本文参考 数据统计 不算子 next 已经集成了不算子只要在主题配置文件里面修改 busuanzi_count的enable为true即可123456789101112131415busuanzi_count: # count values only if the other configs are false enable: true # custom uv span for the whole site site_uv: true site_uv_header: 本站访客数 site_uv_footer: 人次 # custom pv span for the whole site site_pv: true site_pv_header: 本站总访问量 site_pv_footer: 次 # custom pv span for one page only page_pv: true page_pv_header: 本文总阅读量 page_pv_footer: 次 当然要注意的是不算子的官网域名已经迁徙了，所以我们还需要修改busuanzi相应的配置文件 1$ vim themes/next/layout/_third-party/analytics/busuanzi-counter.swig 将里面的样式按照 不算子官网 进行修改 即可 本地搜索此部分节选自,如有侵权，请联系本人删除。 在站点根目录下 1$ npm install hexo-generator-searchdb --save 然后修改站点配置文件，添加以下内容 123456# Searchsearch: path: search.xml field: post format: html limit: 10000 然后修改主题配置文件，修改local_search中enable为true 即可 区域扩充自带的Pisces样式虽然也不错，但是两边留白太多，并不是太好看。可以修改内容区域的宽度。 主题的 source/css/_variables/custom.styl 文件是next留给我们的自由配置的区域。官网的常见问题区有修改方法12$main-desktop = 65%$content-desktop = 75% 效果如我的博客。 本文参考next使用文档迟道的博客]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[用新浪云搭建wordpress]]></title>
+    <url>%2F2019%2F05%2F11%2F1-md%2F</url>
+    <content type="text"><![CDATA[记录，用新浪云搭建一个自己的wordpress站点 听说拥有一个博客对程序员来说是一个挺高大上的东西，于是乎学习如何创建自己的博客。咳咳咳，博客的最大意义是在于分享知识，还可以对自己犯下的错误进行归纳解决，记录下解决方案并避免下次再犯。还可以记录一些技术手段来使自己下次更方便的使用，总之好处多多。下面是创建wordpress类型的博客的记录， 创建新浪云应用 首先我们需要创建一个新浪云账号（实际上别的服务云也行，关键是需要有一个服务器来搭载自己的博客）创建过程自理，然后如图 点入产品，选择云应用SAE,进入后选择环境的时候，选择php，版本为5.6（这个以后可以自己更改）然后选择标准环境（主要是免费）然后选择GIT （方便以后操作，影响不大，而且更好控制）（二级域名可以随便取）先进入代码管理创建应用，应用名随意。然后进入数据库与缓存的共享mysql服务，记录下主库地址，数据库名称，用户名及密码，这个后面很重要记录下来下载wordpress 然后下载一个wordpress的代码压缩包（可以在官网下载）.在我的百度云盘上也有链接：https://pan.baidu.com/s/1mqfGn65FrVx_cUBvE-73nw提取码：b820 （我云盘里的wordpress是修改过的，下载后需要先解压修改其中的wp-config.php文件） 修改部分不多，见图，修改划线部分，主机用刚才记录下的共享MySQL主库地址代替，其余名称，用户名，及密码也一样，其余部分不用修改，（官网下载的wordpress是没有wp-config.php文件的将其中的wp-config-simple.php修改即可）。实施 然后将其压缩成zip文件（方便上传代码，新浪云代码编辑只能上传压缩包），等待运行成功即可。然后点入链接即可（代码管理处的链接）。进入链接后点击现在安装，然后需要填写一些基本信息，随意填写，建议将用户和密码自己保存起来。填写完成后点击安装wordpress。然后就可以Arnhem就会让你登陆，填写上刚注册的用户名和密码。就可以进入创建好的wordpress了。]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>wordpress</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何恢复静态hexo]]></title>
+    <url>%2F2019%2F05%2F11%2F3-md%2F</url>
+    <content type="text"><![CDATA[如何保存并且恢复静态hexo 如何将本地hexo备份上github 前提：已经配置密匙且上传过hexo静态页面 1$ git clone "远程仓库地址" 先将远程仓库克隆到本地， 然后进入clone的目录，打开git bash 1$ git checkout -b hexo 创建并切换成hexo目录 然后将本地博客内的东西全部复制到该目录中 然后删除theme目录下的所有.git文件 1$ git add --all 该命令将所有文件加入缓存区 1$ git commit "源代码" 该命令将文件添加 自述内容 1$ git push origin hexo 推送至远程仓库 如何重新恢复本地博客 前提：已下载git和nodejs 和绑定密匙 先找一个文件用来准备存放需要克隆的文件 在该目录下打开git bash界面 1$ git clone -b hexo "远程仓库地址" 然后打开该文件，输入 1npm install hexo --save 然后就完成了，接下来操作与正常hexo上传相似，建议以后每次操作为（前提是如果在本地预览后没有问题，）。 12345$ git pull$ hexo d -g$ git add -all$ git commit -m "代码自述"$ git push -u origin hexo]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何配置github项目密匙]]></title>
+    <url>%2F2019%2F05%2F11%2F9-md%2F</url>
+    <content type="text"><![CDATA[如何配置github项目密匙 前言 在此之前需要先要拥有一个自己的GitHub账号;以及已经安装了git工具 具体操作 首先找到自己的./ssh文件（有些可能找不到那也也是正常的，因为.ssh文件并不是初始化系统必虚的，该目录用于保存生成过的密匙匙，随便找个地方打开git bash，执行下面操作也有效） 右击.ssh文件夹打开git bash窗口，在打开的git bash窗口里，输入下面信息 1$ ssh-keygen -t rsa -C "youemail" 解释一下，youemail需要换成自己的注册GitHub账号的邮箱;然后在第一个提示句输入自己的github用户名_rsa ;(可以换成其他的，这个用户名以后就是你的登陆句柄 ) 这个时候.ssh文件就已经建立了，在c盘的用户下面可以找到它，然后在这个文件里面打开git bash窗口（已经到打开过了可以跳过） 然后继续在窗口内输入（一定要检查路径是不是在.ssh下，不然会很麻烦，ps-不堪回首）然后输入下面这句 1$ touch coufig 然后打开coufig文件输入以下内容，注意不要在语句前加缩进和空格（ps-不堪回首）下面的one用于代替我的用户名 123456# oneHost one.github.comHostName github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/one_rsaUser one 注意不要改动 （详细参考博客) 前面弄完，并且已经保存后，执行下一步操作。 添加公匙 打开自己的github账号，并且在设置里面的ssh里面添加ssh，密匙名字随便写，内容就要在.ssh文件里面找到自己建立的–比如我的是one_rsa.pub，将里面的内容复制到上面就行 然后就是最后一步，测试 1$ssh -T git@one.github.com 注意，我上面的one仅是样例，可以更改，可以与多个github绑定，设置不同的句柄，每个新账号的添加步骤一致。 如果不知道.ssh路径在哪的 请参考大佬博客]]></content>
+      <tags>
+        <tag>github</tag>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[web新手题]]></title>
+    <url>%2F2019%2F04%2F11%2F4-md%2F</url>
+    <content type="text"><![CDATA[做了一些ctf新手题，于是觉得需要总结一波。 view_source 签到题，按f12查看源码，即可获得flag，当然也可以将源码下载下来再查看(ctrl+s)为了练习python，我还是写了一个python代码 123456789101112import requestsimport re#该函数用于获取flag，数据提交方式为getdef get_flag(url,p): rsp = requests.get(url) flag=re.findall(p,rsp.text) return flagurl = "http://111.198.29.45:56606/"p = r'cyberpeace&#123;[0-9a-zA-Z]*&#125;'flag=get_flag(url,p)print(flag) get_post http协议详解 get和post的对比 http协议中有两种基本的请求方法get和postget适合较小的数据提交，post适合大量数据的提交， 对于做这个题，我们只需要了解get和post的提交方法就行 网址?name=value 这种方式就可以将name的值提交上去，就像是百度搜索的时候，应该有一个 ?wd=··· 这个就是get提交方式。有一个缺陷就是get提交的数据在url都是可见的 post提交比较复杂，这里推荐一个火狐的插件hackbar，可以利用它进行post数据提交，方式也是name=value。 robots rotots协议 大多数网站都会使用robots协议,协议告诉搜索引擎什么可以被访问，什么不可以被访问。但其实也透露了很多信息，以前了解到这个知识的时候就在想，这玩意有了不就是此地无银三百两吗？ 实际操作就是直接访问robots.txt就可以了，比如这个题就是http://111.198.29.45:35952/robots.txt，然后就可以看见哪些不能访问(是指不能被搜索到，但是可以输入链接还是可以访问的) backup 基础知识部分，每次修改php时都会产生一个备份文件，会引起信息的泄露，这部分文件外界也可以访问,形式可能是以下几种，直接下载xia’l 123index.php→ index.php.bakindex.php→ index.oldindex.php→ index.php.temp cookie cookie cookie用来为网页端保存在本地的数据，有些用户的数据保存在cookie里，本地是可以查看的。（查看方法为在url左边的一个小图标，点击就可以查看里面的内容） disabled_button disabled属性 html里有个特殊的按钮，这个按钮只有样子，却不能按下，原因是button标签里面有个disabled属性。我们只要删掉这个属性，就可以按下去了。 simple_js 这个题貌似是考察js函数，打开源代码分析，可以知道，没有数据提交，就知道flag应该就藏在源代码里面，发现一个看似非常复杂的函数，将它化简之后就会发现，其实一点用都没有，还有一个非常长的16进制字符串。我们先将这个16进制数转换为字符串，方法有很多，我这里使用的他自己提供的这个复杂函数(先将下面的16进制数转为字符串，然后用这个字符串代替函数在的字符串，最后运行就可以得到flag值) xff_referer xff和refere 简单来说，X-Forwarded-For（xff）就是用来伪造ip信息的，题目所要求的ip地址来源可以通过修改xff来进行修改，referer是告诉服务器从哪个地方过来的 方法 在这里推荐一个工具burp-suite，这个工具可以很方便的进行各种网页操作，比如拦截信息， 修改报头，爆破等等。 第二个方法为写python代码。代码如下 123456789101112131415161718192021222324import requests#获取响应信息def get_rsp(url,head): req = requests.get(url,headers=head ) req.encoding = 'utf-8' return req#设置报头def set_head(send_ip,send_referer): head = &#123;&#125; head['X-Forwarded-For'] = send_ip head['Referer'] = send_referer return headurl = input("请输入url: ")send_ip = input("请输入xff: ")send_referer = input("请输入referer: ")send_head = set_head(send_ip,send_referer)print("定制报头\n")print(send_head)rsp = get_rsp(url,send_head)print("响应报头")print(rsp.headers)print("响应内容")print(rsp.text ) weak_auth 我们先随手输入一个账号密码，然后就可以看到提示为admin登陆，于是用户名便为admin,剩下的就为暴力破解，这里我使用的burp进行的破解，网上找了一个常用密码集，然后用这个密码集进行破解，很简单就弄出来密码. webshell 一句话木马 关于php的一句话木马 * * value的值可以直接对底层进行更改 便可以得到webshell，然后剩下的操作就和服务器上的操作一样，用post提交value的值就可以了 12shell=system(&quot;ls&quot;);shell=system(&quot;cat flag.txt&quot;); command_execution 和webshell一样的操作，由于这里不是php代码，可以看见这个直接使用命令，这里介绍一下find命令,此外分号;可以在一行执行多个命令操作 12;find -name flag.* cat 文件名 simple_php 这里主要是考察php知识，=为赋值，==只检查内容，===内容和类型都会检查，所以第一个判断语句只需要a=’0’即可，第二个中is_numeric($b)检查b是否为纯数字，第三个又需要$b比1234大，所以1235a便可]]></content>
+      <categories>
+        <category>web</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>python</tag>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[用github展示自己的网页]]></title>
+    <url>%2F2019%2F04%2F11%2F5-md%2F</url>
+    <content type="text"><![CDATA[摘要将自己制作的网页分享给别人看，又不能直接给对方发源码，所以通过github展示自己的网页是个不错的选择 内容 用github展示自己的网页 作者: RE9T 正文首先我们打开自己的github点击+号，新建仓库 名字可以随便取，但建议选项和我一样，以免意外，然后创建 然后上传自己的源码（箭头所指）源码主页面建议改成index.html然后进入settings页面，找到github page部分，然后选择主题，随便选一个即可，选择完成后，即完成。然后再次回到GitHub page页面，可以看见一个链接，该链接即为所自己展示的页面链接]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[GIT操作基础]]></title>
+    <url>%2F2019%2F04%2F11%2F6-md%2F</url>
+    <content type="text"><![CDATA[关于GIT操作基础 回退版本 查看历史版本信息 git log如果想要查看简单信息须加上 –pretty=oneline 回退版本 git reset –hard HEAD^ #为回退到当前版本的上一个版本. 如果是 –hard HAED~n #往上n个版本 还可以 –hard 版本号 #回退到该版本，可以是过去，或者将来 （仅仅是在本地回退，还需要推送上网页） 推送 git push -f -u origin master master可以换成其他分支，比如gh-pagesgit pull #更新，功能是取回远程主机某个分支的更新，再与本地的指定分支合并，它的完整格式稍稍有点复杂。 git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt; git push #推送，将本地文件推送至远程主机 git push -u origin hexo -f #强制推送hexo分支 git checkout -b hexo #新建并切换分支 添加 git init #初始化仓库，本地 git add #添加文件到本地仓库 删除 git rm #具体操作会有提示]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>GIT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何搭建hexo]]></title>
+    <url>%2F2019%2F04%2F11%2F8-md%2F</url>
+    <content type="text"><![CDATA[内容参考了很多大佬的教程，总结如何搭建hexo 个人认为用来搭建博客hexo比其他的简单,加之借鉴了各位大神的博客，来记录一下自己搭hexo博客的经历平台为github 初篇 需要自己先下载好git和npm工具,然后注册一个github账号. git和npm安装教程 安装hexo 安装教程 用hexo上传博客及如何用git上传源码保存源码 完成此步骤需要先配置github密匙。 克隆远程仓库下来 1$ git clone "项目地址" 克隆下来后，打开下载下来的文件，然后删除除.git之外的所有文件 找到自己建立的本地博客文件，将其全部复制进入仓库文件。 然后新建分支并切换,已经建立的可以跳过此步 1$ git checkout -b "hexo" 然后就会会显示当前已进入这个分支 然后将输入下面代码将博客文件添加入缓存区 1$ git add --all 输入下面代码，添加文件自述 1$ git commit -m "自述内容" 提交至远程仓库hexo分支 1$ git push -u origin hexo -f -f表示强制命令 至此，源文件上传完成，哪怕换了一个环境也能复制下来继续写博客，每次上传博客都执行一下上面三步。 上传博客 上面的步骤只是保存源文件，但是想要显示页面还不行。上传博客执行下面三步走 1$ hexo s s就是server，可以启动本地服务器，进行预览 1$ hexo g 生成静态页面 1$ hexo d 上传页面]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>github</tag>
+      </tags>
+  </entry>
+</search>
