@@ -121,12 +121,12 @@
 <meta property="og:site_name" content="RE9T">
 <meta property="og:description" content="&amp;#8195;&amp;#8195; 大约18年七八月，在学长的介绍下认识了博客，也听他说了许许多多关于写博客的好处，又觉得是个很高端的东西。就想着自己也能有个自己的博客。于是就开始尝试搭建自己的个人博客网站。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://39.105.230.153:666/1.png">
-<meta property="og:updated_time" content="2019-09-30T15:16:23.561Z">
+<meta property="og:image" content="http://39.105.230.153:666/2019/04/11/8-md/1.jpg">
+<meta property="og:updated_time" content="2019-10-01T05:41:53.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于搭建个人博客的心得">
 <meta name="twitter:description" content="&amp;#8195;&amp;#8195; 大约18年七八月，在学长的介绍下认识了博客，也听他说了许许多多关于写博客的好处，又觉得是个很高端的东西。就想着自己也能有个自己的博客。于是就开始尝试搭建自己的个人博客网站。">
-<meta name="twitter:image" content="http://39.105.230.153:666/1.png">
+<meta name="twitter:image" content="http://39.105.230.153:666/2019/04/11/8-md/1.jpg">
 
 
 
@@ -386,8 +386,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-09-30T23:16:23+08:00">
-                2019-09-30
+              <time title="更新于" itemprop="dateModified" datetime="2019-10-01T13:41:53+08:00">
+                2019-10-01
               </time>
             
           </span>
@@ -505,7 +505,7 @@
 <li><p>虽然Windows可以，但是我还是推荐使用linux。原因有几个</p>
 <ol>
 <li>因为windows上的环境变量配置起来有点麻烦。</li>
-<li>bash命名框还是使用的那种linux的风格</li>
+<li>bash框还是使用的那种linux的风格</li>
 <li>安装到windows上面一出现什么问题就会很麻烦。利用虚拟机搭建再上传到github会方便和安全很多。</li>
 </ol>
 </li>
@@ -524,7 +524,9 @@
 
 <p>注意：在你还不熟悉github的操作时，仓库名还是设置成，<strong>用户名.github.io</strong> 这个用户名就是你的用户名。</p>
 </li>
-<li><p>保存之后，在使用hexo d推送，实际上这里会报错的，因为我们并没有配置过github的项目密匙和账户信息，但是失败的时候会有提示的<br><img src="/1.png" alt><br>它让你设置git的user.email和user.name，按照它上面提示的就是</p>
+<li><p>保存之后，在使用hexo d推送，实际上这里会报错的，因为我们并没有配置过github的项目密匙和账户信息，但是失败的时候会有提示的</p>
+<img src="/2019/04/11/8-md/1.jpg"> 
+<p>它让你设置git的user.email和user.name，按照它上面提示的就是</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">"you@example.com"</span></span><br><span class="line">$ git config --global user.name <span class="string">"Your Name"</span></span><br><span class="line"><span class="comment">#记得换成自己的注册github时的邮箱和用户名。</span></span><br><span class="line"><span class="comment"># 然后配置密匙和公匙。</span></span><br><span class="line">$ ssh-keygen -C <span class="string">'you@example.com'</span> -t rsa <span class="comment">#真实注册邮箱,接下来的提示一路回车便是。</span></span><br><span class="line">$ cat /root/.ssh/id_rsa.pub <span class="comment">#展示公有密匙。下面输出的一段字符全部复制下来，然后在gthub的仓库页面的设置栏，找到deploy key，创建新密匙，名字随便，然后把这段字符复制到里面，保存就OK。</span></span><br><span class="line">$ hexo d <span class="comment">#最后使用hexo d推送，如无报错表示推送成功，输入你的用户名.github.io便可以访问你的博客了。每次写完文章后记得重新生成静态页面，再重新推送。</span></span><br><span class="line">$ hexo d -g <span class="comment">#一步到位。</span></span><br></pre></td></tr></table></figure>
 
 </li>
