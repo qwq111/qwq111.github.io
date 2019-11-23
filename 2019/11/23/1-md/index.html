@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="多线程,Java,Python,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="RE9T" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;因为有需要，最近去学习了一下多线程，本来是只需要python的，结果又开了java课，没办法，只好顺带一起学了，做个对比也好。就拿素数为样例吧，本来应该是有一个多线程寻找开放的端口的，结果文件找不到了，也就换成求素数的，反正效果一样。">
+<meta name="keywords" content="多线程,Java,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java与Python多线程入门">
+<meta property="og:url" content="http://39.105.230.153:666/2019/11/23/1-md/index.html">
+<meta property="og:site_name" content="RE9T">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;因为有需要，最近去学习了一下多线程，本来是只需要python的，结果又开了java课，没办法，只好顺带一起学了，做个对比也好。就拿素数为样例吧，本来应该是有一个多线程寻找开放的端口的，结果文件找不到了，也就换成求素数的，反正效果一样。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://39.105.230.153:666/2019/11/23/1-md/%5Cimage1.png">
+<meta property="og:image" content="http://39.105.230.153:666/2019/11/23/1-md/%5Cimage3.png">
+<meta property="og:image" content="http://39.105.230.153:666/2019/11/23/1-md/%5Cimage2.png">
+<meta property="og:image" content="http://39.105.230.153:666/2019/11/23/1-md/%5Cimage4.png">
+<meta property="og:image" content="http://39.105.230.153:666/2019/11/23/1-md/image5.png">
+<meta property="og:image" content="http://39.105.230.153:666/2019/11/23/1-md/image6.png">
+<meta property="og:updated_time" content="2019-11-23T13:20:35.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java与Python多线程入门">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;因为有需要，最近去学习了一下多线程，本来是只需要python的，结果又开了java课，没办法，只好顺带一起学了，做个对比也好。就拿素数为样例吧，本来应该是有一个多线程寻找开放的端口的，结果文件找不到了，也就换成求素数的，反正效果一样。">
+<meta name="twitter:image" content="http://39.105.230.153:666/2019/11/23/1-md/%5Cimage1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://39.105.230.153:666/2019/11/23/1-md/">
+
+
+
+
+
+  <title>Java与Python多线程入门 | RE9T</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">RE9T</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resources">
+          <a href="/resources/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-download"></i> <br>
+            
+            资源
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://39.105.230.153:666/2019/11/23/1-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="re9t">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="RE9T">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java与Python多线程入门</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-23T21:20:35+08:00">
+                2019-11-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-23T21:20:35+08:00">
+                2019-11-23
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.5k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为有需要，最近去学习了一下多线程，本来是只需要python的，结果又开了java课，没办法，只好顺带一起学了，做个对比也好。就拿素数为样例吧，本来应该是有一个多线程寻找开放的端口的，结果文件找不到了，也就换成求素数的，反正效果一样。</p>
+<a id="more"></a>
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><p>最近心态有些失衡，有几个月没写东西。不想写一些关于操作之类的文章，写些需要动脑筋的文章转移一下注意力。<br>一讲线程就会和进程联系起来。线程和进程的区别是什么？</p>
+<ul>
+<li>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。<br>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位</li>
+</ul>
+<p>这讲起来有些抽象，一般来说一个单独的应用会被系统分配一个进程，而一个应用里面的某些方法则可以被当作经进程，我这里找到了一个关于线程进程的<a href="https://blog.csdn.net/zhangbijun1230/article/details/80474988" target="_blank" rel="noopener">比较有意思的故事</a>。<br>然后我们通过程序来加深理解。</p>
+<p>再举一个简单的例子，按以往的思维，我写一个程序，要做到边听歌边写作业，以往只能做到要么先听歌，要么先写作业，而多线程就是，给听歌和写作业每个分配一个线程，然后同时运行(这个同时在计算机里面也是有先后的，只是太短，我们以为的同时)</p>
+<h2 id="java多线程样例"><a href="#java多线程样例" class="headerlink" title="java多线程样例"></a>java多线程样例</h2><p>java多线程有两种方法，一个是就是继承Thread类，一个就是实现Runnable接口;区别呢也就是继承Thread类的只能继承一次，接口的可以实现多次。我把两个都写一下，顺别巩固一下接口相关知识。</p>
+<hr>
+<p><strong>为了方便起见，我写了一个工具类，用来作为素数求解工具</strong></p>
+<h3 id="Prime工具类"><a href="#Prime工具类" class="headerlink" title="Prime工具类"></a>Prime工具类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Prime</span> </span>&#123;</span><br><span class="line">	<span class="comment">/*判断是否为素数*/</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPrime</span><span class="params">(<span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(num&lt;<span class="number">2</span>||(num!=<span class="number">2</span>&amp;&amp;num%<span class="number">2</span>==<span class="number">0</span>))<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		<span class="keyword">int</span> s=(<span class="keyword">int</span>) Math.sqrt(num);</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=s;i+=<span class="number">2</span>) &#123;</span><br><span class="line">			<span class="keyword">if</span>(num%i==<span class="number">0</span>)</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*计算区间内素数*/</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">PrimeNum</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=start;i&lt;=end;i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(isPrime(i))</span><br><span class="line">				count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> count;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先我们先来做个对比的，求五千万以内的素数个数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">	<span class="keyword">int</span> count = <span class="number">50000000</span>;<span class="comment">//五千万</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 获取当前系统时间*/</span></span><br><span class="line">	<span class="keyword">long</span> Time1 =  System.currentTimeMillis();</span><br><span class="line">	System.out.println(<span class="string">"素数 "</span>+Prime.PrimeNum(<span class="number">1</span>,count)+<span class="string">"个"</span>);</span><br><span class="line">	<span class="keyword">long</span> Time2 =  System.currentTimeMillis();</span><br><span class="line">	System.out.println(<span class="string">"耗时"</span>+(Time2-Time1)/<span class="number">1000.0</span>+<span class="string">" s"</span>);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下:<br><img src="%5Cimage1.png" alt="image1"><br>这里花了30多秒计算出来五千万个素数，当然算法也比较优越，如果是最原始的算法，应该会有一个多小时，昨天我跑八百万都花了十几分钟，也可能是电脑太渣了。</p>
+<h3 id="继承Thread类"><a href="#继承Thread类" class="headerlink" title="继承Thread类"></a>继承Thread类</h3><p>关于继承Thread类的，其实也就是重写Thread类的run方法，run方法里面是线程start(开始)后运行的东西，我们在run函数里面写下我们想让执行的东西，每次start就会开启一个新线程执行run;</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> test.Prime;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CulPrime</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> start;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> end;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CulPrime</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(start&gt;end) &#123;</span><br><span class="line">			System.out.println(<span class="string">"不合理的区间"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">this</span>.start=start;</span><br><span class="line">			<span class="keyword">this</span>.end=end;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+<span class="string">"开始计算"</span>+start+<span class="string">","</span>+end);</span><br><span class="line">		<span class="keyword">int</span> count = Prime.PrimeNum(start,end);</span><br><span class="line">		num += count;</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+<span class="string">"计算出 素数"</span>+count+<span class="string">"个"</span>);</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+<span class="string">"计算完成"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">int</span> count = <span class="number">50000000</span>;<span class="comment">//五千万</span></span><br><span class="line">		</span><br><span class="line">		Vector&lt;Thread&gt; threadvector=<span class="keyword">new</span> Vector&lt;Thread&gt;(); <span class="comment">//用于储存所有线程</span></span><br><span class="line">		<span class="comment">/* 区间划分 为了方便，分成五段，每个线程计算一千万 */</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;count;i+=count/<span class="number">5</span>) &#123;</span><br><span class="line">			threadvector.add(<span class="keyword">new</span> CulPrime(i, i+count/<span class="number">5</span>-<span class="number">1</span>));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">long</span> Time3 =  System.currentTimeMillis();</span><br><span class="line">		<span class="comment">/* 线程开始 */</span></span><br><span class="line">		<span class="keyword">for</span>(Thread t: threadvector) &#123;</span><br><span class="line">			t.start();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/* 等待所有线程结束 */</span></span><br><span class="line">		<span class="keyword">for</span>(Thread t: threadvector) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				t.join();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">long</span> Time4 =  System.currentTimeMillis();</span><br><span class="line">		System.out.println(<span class="string">"多线程计算: 素数 "</span>+num+<span class="string">"个"</span>);</span><br><span class="line">		System.out.println(<span class="string">"多线程计算"</span>+<span class="string">"耗时"</span>+(Time4-Time3)/<span class="number">1000.0</span>+<span class="string">" s"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下:<br><img src="%5Cimage3.png" alt="image3"><br>差别很明显，计算结果一样，但是时间差了几倍。</p>
+<h3 id="实现Runnable接口"><a href="#实现Runnable接口" class="headerlink" title="实现Runnable接口"></a>实现Runnable接口</h3><p>首先，什么是接口，接口又是怎么实现的，我个人认为接口其实就是封装思维的最好体现，多个类之间通过接口访问，而不直接访问内部成员。就像是人和人之间，我们可以通过交流的方式获取别人的信息，而不是直接通过读取别人的脑子一样，这个三体人的样子我还记忆犹新。<br><a href="https://blog.csdn.net/aoxue018/article/details/81176783" target="_blank" rel="noopener">我这里找到了一个usb接口的样例</a>，讲道理接口更多像是一种协议，规定了访问方式，访问规则等待。<br>我们再来看看接口的实现方式,虽然最后时间结果应该是差不多的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"><span class="keyword">import</span> java.util.Vector;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> test.Prime;</span><br><span class="line"></span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">    * 使用Runnable接口的步骤</span></span><br><span class="line"><span class="comment">    * 1.建立Runnable对象</span></span><br><span class="line"><span class="comment">    * 2.使用参数为Runnable对象的构造方法创建Thread实例</span></span><br><span class="line"><span class="comment">    * 3.调用start()启动线程</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CulPrime</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> start;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> end;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CulPrime</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(start&gt;end) &#123;</span><br><span class="line">			System.out.println(<span class="string">"不合理的区间"</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">this</span>.start=start;</span><br><span class="line">			<span class="keyword">this</span>.end=end;</span><br><span class="line">		&#125;	</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+<span class="string">"开始计算"</span>+start+<span class="string">","</span>+end);</span><br><span class="line">		<span class="keyword">int</span> count = Prime.PrimeNum(start,end);</span><br><span class="line">		num += count;</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+<span class="string">"计算出 素数"</span>+count+<span class="string">"个"</span>);</span><br><span class="line">		System.out.println(Thread.currentThread().getName()+<span class="string">"计算完成"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">int</span> count = <span class="number">50000000</span>;<span class="comment">//五千万</span></span><br><span class="line"></span><br><span class="line">		Vector&lt;Thread&gt; threadvector=<span class="keyword">new</span> Vector&lt;Thread&gt;(); <span class="comment">//用于储存所有线程</span></span><br><span class="line">		<span class="comment">/* 区间划分 为了方便，分成五段，每个线程计算一千万 */</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;count;i+=count/<span class="number">5</span>) &#123;</span><br><span class="line">			threadvector.add(<span class="keyword">new</span> Thread(<span class="keyword">new</span> CulPrime(i, i+count/<span class="number">5</span>-<span class="number">1</span>)));</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">long</span> Time3 =  System.currentTimeMillis();</span><br><span class="line">		<span class="comment">/* 线程开始 */</span></span><br><span class="line">		<span class="keyword">for</span>(Thread t: threadvector) &#123;</span><br><span class="line">			t.start();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">/* 等待所有线程结束 */</span></span><br><span class="line">		<span class="keyword">for</span>(Thread t: threadvector) &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				t.join();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">				<span class="comment">// TODO Auto-generated catch block</span></span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">long</span> Time4 =  System.currentTimeMillis();</span><br><span class="line">		System.out.println(<span class="string">"多线程计算: 素数 "</span>+num+<span class="string">"个"</span>);</span><br><span class="line">		System.out.println(<span class="string">"多线程计算"</span>+<span class="string">"耗时"</span>+(Time4-Time3)/<span class="number">1000.0</span>+<span class="string">" s"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果如下<br><img src="%5Cimage2.png" alt="image2"></p>
+<p>显然，程序上只有一个调用的区别，而实际的计算速度，差别不大。接口的好处在于，可以有多个类实现接口，而继承只能是单个的。比如说我有学生类，老师类，人类等等，我可以每个类都实现接口，然后在一个程序里创造一个对象就可以，而不是每次都继承Thread类。</p>
+<p>当然上面的例子里我开了5个线程，那么线程是不是越多越好？或者是有个什么限定？<br><img src="%5Cimage4.png" alt="image4"><br>很显然，我上面开了10个线程，明显比5个线程的快了一些，但是线程数目不是越多越好，对于单核cpu来说，线程只是合理的分配时间，把每个线程都划分一个时间段，以此加快速度，但是对于持久计算来说，先算和后算的区别不是太大；对于多核cpu来说，开的线程数量合适就可以使cpu的每个核都分配一个线程，这样运算速度自然提升。</p>
+<h2 id="python多线程样例"><a href="#python多线程样例" class="headerlink" title="python多线程样例"></a>python多线程样例</h2><p>Python中使用线程有两种方式：函数或者用类来包装线程对象，简单来说就是，我的线程运行的要么是函数，要么是对象</p>
+<hr>
+<p>Python官方提供了两个线程包thread(python3改为_thread))和threading,当然thread的功能还是比较简陋的，所以我这里只拿threading做例子，毕竟人还是要与时俱进。</p>
+<h3 id="函数式线程"><a href="#函数式线程" class="headerlink" title="函数式线程"></a>函数式线程</h3><p>实际上就是我有几个函数，然后每个函数分配线程而已。同样拿求素数为例子吧,老规矩，先来一个工具类Prime，因为python是解释型语言的原因，我们把计算数据范围调小.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Prime</span>:</span></span><br><span class="line"><span class="meta">    @staticmethod # 静态方法声明</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPrime</span><span class="params">(num)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> num &lt; <span class="number">2</span> <span class="keyword">or</span> (num &gt; <span class="number">2</span> <span class="keyword">and</span> num % <span class="number">2</span> == <span class="number">0</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        n = int(math.sqrt(num))</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>, n + <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> num % i == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">	<span class="comment"># 该函数用于多线程测试</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">PrimeNum</span><span class="params">(ThreadName, start, end)</span>:</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        print(<span class="string">f'<span class="subst">&#123;ThreadName&#125;</span>开始计算<span class="subst">&#123;start&#125;</span>到<span class="subst">&#123;end&#125;</span>区间'</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, end + <span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> Prime.isPrime(i):</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">        print(<span class="string">'&#123;0&#125;计算完成'</span>.format(ThreadName))</span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">	<span class="comment"># 该函数用于单线程测试</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">PrimeNum</span><span class="params">(start, end)</span>:</span></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        print(<span class="string">f'开始计算<span class="subst">&#123;start&#125;</span>到<span class="subst">&#123;end&#125;</span>区间'</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start, end + <span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> Prime.isPrime(i):</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">        print(<span class="string">'计算完成 素数个数为&#123;0&#125;'</span>.format(count))</span><br><span class="line">        <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+
+<p>然后我们先测试一下单线程状态下的计算速度和时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    num = <span class="number">0</span></span><br><span class="line">    step = <span class="number">1000000</span> <span class="comment"># 一百万</span></span><br><span class="line">    StartTime = time.time()</span><br><span class="line">    PrimeNum(<span class="number">1</span>,<span class="number">1</span>*step)</span><br><span class="line">    EndTime = time.time()</span><br><span class="line">    print(<span class="string">"耗时: "</span>, EndTime - StartTime, <span class="string">"s"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="./image5.png" alt="image5"><br>然后就是多线程下的计算.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    num = <span class="number">0</span></span><br><span class="line">    step = <span class="number">200000</span> <span class="comment"># 二十万</span></span><br><span class="line">    StartTime = time.time()</span><br><span class="line">    count = [<span class="number">1</span>, step + <span class="number">1</span>, <span class="number">2</span> * step + <span class="number">1</span>, <span class="number">3</span> * step + <span class="number">1</span>, <span class="number">4</span> * step + <span class="number">1</span>]  <span class="comment"># 一百万</span></span><br><span class="line">    threads = []</span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count:</span><br><span class="line">        threads.append(threading.Thread(args=[<span class="string">"Thread-"</span> + str(j), i, i + step - <span class="number">1</span>, ], target=Prime.PrimeNum))</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        StartTime = time.time()</span><br><span class="line">        <span class="comment"># 开始所有进程</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> threads:</span><br><span class="line">            t.start()</span><br><span class="line">        <span class="comment"># 等待所有进程结束</span></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> threads:</span><br><span class="line">            t.join()</span><br><span class="line">        EndTime = time.time()</span><br><span class="line">        print(<span class="string">"耗时: "</span>, EndTime - StartTime, <span class="string">"s"</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(<span class="string">"Error: 无法启动线程"</span>, e)</span><br><span class="line">    EndTime = time.time()</span><br><span class="line">    print(<span class="string">"耗时: "</span>, EndTime - StartTime, <span class="string">"s"</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="./image6.png" alt="image6"></p>
+<h3 id="类继承Thread类实现多线程"><a href="#类继承Thread类实现多线程" class="headerlink" title="类继承Thread类实现多线程"></a>类继承Thread类实现多线程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">myThread</span> <span class="params">(threading.Thread)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name)</span>:</span></span><br><span class="line">		self.name=name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 线程主体</span></span><br><span class="line">		print_name(self.name)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_name</span><span class="params">(name)</span>:</span></span><br><span class="line">	print(name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建新线程</span></span><br><span class="line">thread1 = myThread(<span class="string">"Thread-1"</span>)</span><br><span class="line">thread2 = myThread(<span class="string">"Thread-2"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启新线程</span></span><br><span class="line">thread1.start()</span><br><span class="line">thread2.start()</span><br><span class="line">thread1.join()</span><br><span class="line">thread2.join()</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"退出主线程"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这里我只给一个模板，实际上继承之后只要像Java那样实现run方法就行了。</p>
+<h3 id="python多线程总结"><a href="#python多线程总结" class="headerlink" title="python多线程总结"></a>python多线程总结</h3><p>很显然python利用计算素数的效率慢很多，而且多线程并不比单线程计算要快。原因有俩个，一个是python是解释型语言，运行效率比编译型语言慢很多。另一个就是python并不适合高并发、多线程程序的编写<br>。</p>
+<p>一般来说我们写的python多线程都是单核多线程，也就是说线程与线程之间都是交替执行的,只是速度很快。这不是意味我们并不能用python写多核并发，实际上python是可以利用c/c++<br>实现多核并发的。<br><strong>参考</strong>:    <a href="https://blog.csdn.net/Android_xue/article/details/85039275" target="_blank" rel="noopener">python的优势和劣势</a></p>
+<h2 id="多线程优化的原理"><a href="#多线程优化的原理" class="headerlink" title="多线程优化的原理"></a>多线程优化的原理</h2><p>线程的应用主要是并发和并行。</p>
+<ul>
+<li>并发(concurrency)：指在同一时刻只能有一条指令执行，但多个进程指令被快速的轮换执行，使得在宏观上具有多个进程同时执行的效果，但在微观上并不是同时执行的，只是把时间分成若干段，使多个进程快速交替的执行，避免阻塞和更有效利用资源。<strong>典型的例子有：在长时间工作的程序中使用工作线程避免界面失去响应。在网络下载程序中，使用多个线程提高对网络的使用效率，更快下载文件。</strong></li>
+<li>并行(parallel)：指在同一时刻，有多条指令在多个处理器上同时执行。所以无论从微观还是从宏观来看，二者都是一起执行的。</li>
+</ul>
+<p>并发可以用在单核和多核处理器上，并行只能在多核处理器上。在我举的计算素数例子里面，如果我的电脑是单核的，多线程计算的速度可能并不会有优化，</p>
+<p>对于单处理器系统，操作系统会轮流调度每个线程执行一小段时间，然后切换另一个线程，在切换的时候，保存当前线程使用的寄存器上下文和堆栈，并且在下次调度的时候恢复。这样线程中的程序感觉不到自己被中断过。对于多处理器系统，操作系统会将不同的线程调度给多个处理器，让它们并行执行。<br><strong>以下为我复习计组总结的，如有偏差还望纠正</strong><br>我们知道，程序运行在计算机里面实际上是下面这个过程<br> <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">--&gt; 程序数据存入主存</span><br><span class="line">--&gt; CPU从主存中取指令</span><br><span class="line">--&gt; CPU执行指令之间读取数据 </span><br><span class="line">--&gt; CPU写回运算结果</span><br><span class="line">--&gt; 输出设备输出结果</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>主存读写速度和cpu运算速度是不一致的，一般来说CPU运算速度会比主存读取速度快很多，而慢速的主存则会将快速的CPU速度降下来。</p>
+</li>
+<li><p>一台计算机中最核心的组件是 CPU、内存、以及 I/O 设备，这是冯罗伊曼体系结构决定的。三者速度依次减小。</p>
+</li>
+<li><p>程序的任务主要分两种类型，一种是I/O密集型（读写型），一种是CPU密集型（运算型）。注意：<strong>这个是相对概念</strong>。</p>
+<p>程序的运行一般都是有顺序的，像一个队列一样。假设我们有两个任务，一个大量运算，一个UI显示，很显然，如果我们在执行任务1的时候，UI会卡住。所以我们的用户体验就会贼差，这时候就是并发的优势，我执行一段计算后再执行UI，两者交替执行，因为这个交替的速度很快，所以在用户看来，是同时执行的。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+<div>
+      
+        
+
+      
+</div>	
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>你的支持是我最大的动力！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="re9t 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    re9t
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://39.105.230.153:666/2019/11/23/1-md/" title="Java与Python多线程入门">http://39.105.230.153:666/2019/11/23/1-md/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/29/7-md/" rel="next" title="面向对象和面向过程的总结">
+                <i class="fa fa-chevron-left"></i> 面向对象和面向过程的总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80Njg0MC8yMzM0MQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="re9t">
+            
+              <p class="site-author-name" itemprop="name">re9t</p>
+              <p class="site-description motion-element" itemprop="description">知我者，谓我心忧；不知我者，谓我何求；悠悠苍天，此何人哉？</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#线程"><span class="nav-number">1.</span> <span class="nav-text">线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java多线程样例"><span class="nav-number">2.</span> <span class="nav-text">java多线程样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prime工具类"><span class="nav-number">2.1.</span> <span class="nav-text">Prime工具类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承Thread类"><span class="nav-number">2.2.</span> <span class="nav-text">继承Thread类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现Runnable接口"><span class="nav-number">2.3.</span> <span class="nav-text">实现Runnable接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python多线程样例"><span class="nav-number">3.</span> <span class="nav-text">python多线程样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数式线程"><span class="nav-number">3.1.</span> <span class="nav-text">函数式线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类继承Thread类实现多线程"><span class="nav-number">3.2.</span> <span class="nav-text">类继承Thread类实现多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python多线程总结"><span class="nav-number">3.3.</span> <span class="nav-text">python多线程总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程优化的原理"><span class="nav-number">4.</span> <span class="nav-text">多线程优化的原理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">re9t</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">9.3k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
